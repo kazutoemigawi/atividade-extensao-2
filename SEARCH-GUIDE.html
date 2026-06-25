@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia de Busca e Filtros</title>
+  <style>
+    body {
+      font-family: Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f5f5;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1 { color: #0c8659; border-bottom: 3px solid #ffa500; padding-bottom: 10px; }
+    h2 { color: #0c8659; margin-top: 30px; }
+    code { background: #f0f0f0; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+    .section { background: white; padding: 20px; margin: 20px 0; border-radius: 8px; }
+    .tip { background: #e8f5f0; border-left: 4px solid #0c8659; padding: 12px; margin: 12px 0; }
+    .code-block { background: #1a1a1a; color: #f0f0f0; padding: 12px; border-radius: 6px; overflow-x: auto; margin: 12px 0; font-size: 0.9rem; }
+    .example { background: #f9f9f9; border-left: 3px solid #ffa500; padding: 12px; margin: 12px 0; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>🔍 Guia de Busca e Filtros de Exercícios</h1>
+
+  <div class="section">
+    <h2>1. Como Usar a Busca</h2>
+    <p>Na página <strong>Treinos por Músculo</strong>, você encontrará um campo de busca no topo:</p>
+    
+    <div class="example">
+      <strong>Campo:</strong> 🔍 Buscar exercício (ex: press, agachamento, remada...)
+    </div>
+
+    <h3>Exemplos de buscas:</h3>
+    <ul>
+      <li><code>press</code> — Encontra "Press de banco", "Desenvolvimento militar"</li>
+      <li><code>agachamento</code> — Encontra "Agachamento livre"</li>
+      <li><code>remada</code> — Encontra "Remada curvada"</li>
+      <li><code>perna</code> — Encontra toda a seção de pernas</li>
+      <li><code>curl</code> — Encontra "Curl com barra"</li>
+      <li><code>progressão</code> — Busca na seção de dicas</li>
+    </ul>
+
+    <div class="tip">
+      <strong>💡 Dica:</strong> A busca é <strong>insensível a maiúsculas</strong>, então "PRESS" = "press" = "Press".
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>2. O que a Busca Encontra</h2>
+    <p>A busca localiza em 3 áreas de cada card:</p>
+    <ul>
+      <li><strong>Nome do músculo:</strong> "Peito", "Costas", "Pernas", etc.</li>
+      <li><strong>Exercícios e variações:</strong> "Press de banco", "Fly", "Curl", etc.</li>
+      <li><strong>Dicas práticas:</strong> "amplitude", "controle", "postura", etc.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>3. Atalhos de Teclado</h2>
+    <ul>
+      <li><strong>ESC</strong> — Limpa a busca e mostra todos os exercícios novamente</li>
+      <li><strong>Clique no campo</strong> — Ativa o modo de busca com foco automático</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>4. Feedback Visual</h2>
+    <p>Ao buscar, você verá um contador de resultados:</p>
+
+    <div class="example">
+      <strong>✅ 2 exercícios encontrados</strong> — Sucesso! Múltiplos resultados<br>
+      <strong>✅ 1 exercício encontrado</strong> — Sucesso! Um único resultado<br>
+      <strong>❌ Nenhum exercício encontrado</strong> — Tente outros termos
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Como Funciona o Filtro (Código)</h2>
+    <p>O JavaScript filtra em tempo real:</p>
+    <div class="code-block">
+const query = searchInput.value.toLowerCase();
+const cards = exercisesGrid.querySelectorAll('.muscle-card');
+
+cards.forEach(card => {
+  const title = card.querySelector('h2').textContent.toLowerCase();
+  const exercises = card.querySelector('ul').textContent.toLowerCase();
+  const tip = card.querySelector('p').textContent.toLowerCase();
+
+  if(title.includes(query) || exercises.includes(query) || tip.includes(query)) {
+    card.style.display = 'block';
+  } else {
+    card.style.display = 'none';
+  }
+});
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. Expandindo a Busca (Ideias Futuras)</h2>
+    
+    <h3>Filtros por Categoria:</h3>
+    <div class="code-block">
+const filterButtons = document.querySelectorAll('.filter-btn');
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const category = btn.dataset.category;
+    cards.forEach(card => {
+      card.classList.toggle('hidden', card.dataset.category !== category);
+    });
+  });
+});
+    </div>
+
+    <h3>Busca Avançada:</h3>
+    <ul>
+      <li>Filtrar por dificuldade (iniciante, intermediário, avançado)</li>
+      <li>Filtrar por equipamento (halter, máquina, peso corporal)</li>
+      <li>Salvar exercícios favoritos (localStorage)</li>
+      <li>Imprimir treino filtrado em PDF</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>7. Integração com Nutrição</h2>
+    <p>Você pode adicionar a mesma busca em <code>nutricao.html</code>:</p>
+    <div class="code-block">
+&lt;input type="text" id="search-input" class="search-box" 
+       placeholder="🔍 Buscar biotipo (ex: ectomorfo, caloria...)"&gt;
+    </div>
+
+    <div class="tip">
+      <strong>Exemplo:</strong> Buscar "caloria" encontraria info de calorias para cada biotipo.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>8. Performance e Acessibilidade</h2>
+    
+    <h3>✅ Melhorias implementadas:</h3>
+    <ul>
+      <li>Busca em tempo real (sem delay)</li>
+      <li>Suporte a teclado (ESC para limpar)</li>
+      <li>Feedback visual claro (contador)</li>
+      <li>Sem requisições HTTP (tudo local)</li>
+      <li>Responsivo em mobile</li>
+    </ul>
+
+    <h3>🔮 Melhorias futuras:</h3>
+    <ul>
+      <li>Debounce para otimizar (delay de 200ms)</li>
+      <li>Highlight de palavras encontradas</li>
+      <li>Histórico de buscas recentes</li>
+      <li>Sugestões de autocomplete</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>9. Exemplo de Uso Prático</h2>
+    
+    <p><strong>Cenário:</strong> Você quer treinar apenas costas.</p>
+    <ol>
+      <li>Clique no campo de busca</li>
+      <li>Digite "costas" ou "remada"</li>
+      <li>Veja apenas exercícios de costas</li>
+      <li>Copie a progressão no seu caderno de treino</li>
+      <li>Pressione ESC para voltar à lista completa</li>
+    </ol>
+  </div>
+
+  <div class="section">
+    <h2>10. Troubleshooting</h2>
+    
+    <table style="width: 100%; border-collapse: collapse;">
+      <tr style="background: #0c8659; color: white;">
+        <th style="border: 1px solid #ddd; padding: 8px;">Problema</th>
+        <th style="border: 1px solid #ddd; padding: 8px;">Solução</th>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #ddd; padding: 8px;">Busca não funciona</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">Verifique se <code>scripts.js</code> está carregado</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #ddd; padding: 8px;">Campo de busca não aparece</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">Abra DevTools (F12) e procure por erros</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #ddd; padding: 8px;">Resultados "quebrados"</td>
+        <td style="border: 1px solid #ddd; padding: 8px;">Verifique se o HTML tem <code>id="exercises-grid"</code></td>
+      </tr>
+    </table>
+  </div>
+
+  <hr style="margin: 40px 0; border: none; border-top: 2px solid #ddd;">
+  <p style="text-align: center; color: #666;">
+    ✅ Busca e filtros implementados com sucesso! 🚀
+  </p>
+</body>
+</html>

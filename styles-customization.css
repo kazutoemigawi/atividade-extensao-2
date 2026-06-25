@@ -1,0 +1,196 @@
+/* 
+=== GUIA DE CUSTOMIZAÇÃO CSS ===
+Este arquivo contém exemplos de variações de estilo que você pode aplicar.
+*/
+
+/* === VARIAÇÃO 1: Tema Azul (alternativa) === */
+:root.theme-blue {
+  --primary: #0066cc;
+  --primary-dark: #003d99;
+  --secondary: #00cc99;
+}
+
+/* === VARIAÇÃO 2: Tema Roxo === */
+:root.theme-purple {
+  --primary: #7c3aed;
+  --primary-dark: #6d28d9;
+  --secondary: #ec4899;
+}
+
+/* === ANIMAÇÕES === */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pulseScale {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Aplicar animação aos cards */
+.muscle-card {
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+.muscle-card:nth-child(1) { animation-delay: 0.1s; }
+.muscle-card:nth-child(2) { animation-delay: 0.2s; }
+.muscle-card:nth-child(3) { animation-delay: 0.3s; }
+.muscle-card:nth-child(4) { animation-delay: 0.4s; }
+.muscle-card:nth-child(5) { animation-delay: 0.5s; }
+.muscle-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* === EFEITOS ADICIONAIS === */
+
+/* Efeito de brilho no hover */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.card:hover::before {
+  left: 100%;
+}
+
+/* === TIPOGRAFIA AVANÇADA === */
+h1, h2 {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* === BADGES E DESTACADORES === */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--secondary);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.badge-primary {
+  background: var(--primary);
+}
+
+/* === PROGRESSÃO VISUAL === */
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e0e6ed;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  animation: slideRight 2s ease-out;
+}
+
+@keyframes slideRight {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* === Dark MODE (Exemplo) === */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1a;
+    --card-bg: #2d2d2d;
+    --text: #f0f0f0;
+    --text-light: #a0a0a0;
+    --border: #404040;
+  }
+}
+
+/* === IMAGENS E ÍCONES === */
+.icon-large {
+  font-size: 4rem;
+  transition: transform 0.3s;
+}
+
+.muscle-card:hover .icon-large {
+  transform: scale(1.15) rotate(5deg);
+}
+
+/* === TOOLTIPS === */
+.tooltip {
+  position: relative;
+  cursor: help;
+  border-bottom: 1px dotted var(--primary);
+}
+
+.tooltip:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  background: var(--primary);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  animation: fadeIn 0.3s;
+}
+
+/* === SOMBRAS CUSTOMIZADAS === */
+.shadow-sm { box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.shadow-md { box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
+.shadow-lg { box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
+.shadow-xl { box-shadow: 0 20px 40px rgba(0,0,0,0.18); }
+
+/* === GLASSMORPHISM (Efeito vidro) === */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+/* === CONTADOR / STATS === */
+.stat-box {
+  padding: 16px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+
+
+

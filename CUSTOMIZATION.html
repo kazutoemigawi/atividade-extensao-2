@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia de Customização — Treino & Nutrição</title>
+  <style>
+    body {
+      font-family: Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f5f5f5;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1 { color: #0c8659; border-bottom: 3px solid #ffa500; padding-bottom: 10px; }
+    h2 { color: #0c8659; margin-top: 30px; }
+    h3 { color: #333; }
+    code {
+      background: #f0f0f0;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    .section { background: white; padding: 20px; margin: 20px 0; border-radius: 8px; }
+    .tip { background: #e8f5f0; border-left: 4px solid #0c8659; padding: 12px; margin: 12px 0; }
+    .warning { background: #fff3cd; border-left: 4px solid #ffa500; padding: 12px; margin: 12px 0; }
+    ul { margin: 12px 0; }
+    li { margin: 6px 0; }
+    .code-block {
+      background: #1a1a1a;
+      color: #f0f0f0;
+      padding: 12px;
+      border-radius: 6px;
+      overflow-x: auto;
+      margin: 12px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>📚 Guia Completo de Customização</h1>
+
+  <div class="section">
+    <h2>1. Estrutura do Projeto</h2>
+    <ul>
+      <li><code>index.html</code> — Página inicial</li>
+      <li><code>musculos.html</code> — Treinos por músculo</li>
+      <li><code>nutricao.html</code> — Nutrição por biotipo</li>
+      <li><code>styles.css</code> — Estilos principais (CSS responsivo)</li>
+      <li><code>styles-customization.css</code> — Exemplos de temas e animações</li>
+      <li><code>scripts.js</code> — Menu móvel e interações</li>
+      <li><code>README.md</code> — Documentação principal</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>2. Personalizando Cores</h2>
+    <p>Edite as variáveis CSS em <code>styles.css</code>:</p>
+    <div class="code-block">
+:root{
+  --primary: #0c8659;        /* Verde princial */
+  --primary-dark: #066b46;   /* Verde escuro */
+  --secondary: #ffa500;      /* Laranja destaque */
+  --bg: #f0f4f8;            /* Fundo da página */
+  --card-bg: #fff;          /* Fundo dos cards */
+  --text: #1a1a1a;          /* Texto principal */
+  --text-light: #666;       /* Texto secundário */
+  --border: #e0e6ed;        /* Bordas */
+}
+    </div>
+    <div class="tip">
+      <strong>💡 Dica:</strong> Use um <a href="https://coolors.co" target="_blank">gerador de paleta de cores</a> para encontrar combinações harmônicas.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>3. Adicionando Exercícios</h2>
+    <p>Edite <code>musculos.html</code> e copie a estrutura de um card:</p>
+    <div class="code-block">
+&lt;article class="muscle-card"&gt;
+  &lt;div class="icon"&gt;🔥&lt;/div&gt;
+  &lt;h2&gt;Nome do Exercício&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Exercício 1: sets x reps&lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;h3&gt;Progressão&lt;/h3&gt;
+  &lt;ol&gt;
+    &lt;li&gt;Semana 1: descrição&lt;/li&gt;
+  &lt;/ol&gt;
+  &lt;p&gt;Dica: ...&lt;/p&gt;
+&lt;/article&gt;
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>4. Aplicando Temas</h2>
+    <p>Inclua o arquivo de customização no <code>&lt;head&gt;</code>:</p>
+    <div class="code-block">
+&lt;link rel="stylesheet" href="styles-customization.css"&gt;
+    </div>
+    <p>Depois, adicione a classe ao <code>&lt;html&gt;</code>:</p>
+    <div class="code-block">
+&lt;html lang="pt-BR" class="theme-blue"&gt;
+    </div>
+    <div class="tip">
+      <strong>Temas disponíveis:</strong>
+      <ul>
+        <li><code>theme-blue</code> — Azul e verde</li>
+        <li><code>theme-purple</code> — Roxo e rosa</li>
+        <li>Padrão (verde e laranja)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Adicionando Imagens Reais</h2>
+    <p>Para melhorar ainda mais, adicione imagens em cada card:</p>
+    <div class="code-block">
+&lt;article class="muscle-card"&gt;
+  &lt;img src="peito.jpg" alt="Exercício de peito" 
+       style="width:100%; height:150px; object-fit:cover; border-radius:8px; margin-bottom:12px;"&gt;
+  &lt;!-- resto do conteúdo --&gt;
+&lt;/article&gt;
+    </div>
+    <div class="warning">
+      <strong>📸 Fontes de imagens livres:</strong>
+      <ul>
+        <li><a href="https://unsplash.com" target="_blank">Unsplash</a> — Imagens de qualidade</li>
+        <li><a href="https://pexels.com" target="_blank">Pexels</a> — Foco em esportes</li>
+        <li><a href="https://pixabay.com" target="_blank">Pixabay</a> — Muitas opções</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>6. Expandindo com JavaScript</h2>
+    <p>Ideias para interatividade adicional em <code>scripts.js</code>:</p>
+    <div class="code-block">
+// Busca de exercícios
+function searchExercises(query) {
+  const cards = document.querySelectorAll('.muscle-card');
+  cards.forEach(card => {
+    const title = card.querySelector('h2').textContent.toLowerCase();
+    card.style.display = title.includes(query.toLowerCase()) ? 'block' : 'none';
+  });
+}
+
+// Cálculo de macros
+function calculateMacros(weight, biotipo) {
+  const macros = {
+    'ectomorfo': { protein: 2.0, carbs: 4.5, fat: 1.0 },
+    'mesomorfo': { protein: 1.8, carbs: 3.5, fat: 0.9 },
+    'endomorfo': { protein: 2.0, carbs: 2.5, fat: 0.7 }
+  };
+  const m = macros[biotipo];
+  return {
+    protein: Math.round(weight * m.protein),
+    carbs: Math.round(weight * m.carbs),
+    fat: Math.round(weight * m.fat)
+  };
+}
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>7. Deploy (Publicar Online)</h2>
+    <div class="tip">
+      <strong>Opções gratuitas:</strong>
+      <ul>
+        <li><strong>GitHub Pages</strong> — Hospede diretamente do GitHub</li>
+        <li><strong>Netlify</strong> — Drag & drop, muito fácil</li>
+        <li><strong>Vercel</strong> — Otimizado para web estática</li>
+        <li><strong>Firebase Hosting</strong> — Google Cloud gratuito</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>8. SEO e Acessibilidade</h2>
+    <ul>
+      <li>Adicione <code>&lt;meta name="description"&gt;</code> em cada página</li>
+      <li>Use <code>alt=""</code> descritivo em imagens</li>
+      <li>Mantenha contraste de cores adequado (WCAG AA)</li>
+      <li>Teste em leitores de tela: <a href="https://www.nvaccess.org/" target="_blank">NVDA</a></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>9. Performance</h2>
+    <ul>
+      <li>Comprima imagens: <a href="https://tinypng.com" target="_blank">TinyPNG</a></li>
+      <li>Minimize CSS/JS (em produção)</li>
+      <li>Use lazy loading para imagens</li>
+      <li>Teste com <a href="https://pagespeed.web.dev/" target="_blank">PageSpeed Insights</a></li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>10. Próximos Passos</h2>
+    <div class="tip">
+      <strong>✨ Ideias futuras:</strong>
+      <ul>
+        <li>Backend com PHP/Node.js para salvar progresso</li>
+        <li>API de dados de exercícios</li>
+        <li>App mobile com React Native</li>
+        <li>Newsletter com dicas semanais</li>
+        <li>Integração com apps de treino (Fitbit, Apple Health)</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr style="margin: 40px 0; border: none; border-top: 2px solid #ddd;">
+  <p style="text-align: center; color: #666;">
+    ✅ Parabéns por ter um site de treino e nutrição! Continue aprendendo. 💪
+  </p>
+</body>
+</html>
